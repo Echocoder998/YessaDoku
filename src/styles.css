@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --felt: #f6f0e6;
+  --felt-deep: #efe4d4;
+  --ink: #241c16;
+  --ink-soft: #6d6258;
+  --line: #e4d8c8;
+  --well: #fffaf3;
+  --card: #fffdf9;
+  --danger: #c81e1e;
+  --accent: #c4522a;
+  --accent-ink: #fff8f3;
+  --table: #14352b;
+  --cream: #f6f0e6;
+  color-scheme: light;
+}
+
+:root.dark {
+  --felt: #10211c;
+  --felt-deep: #0b1915;
+  --ink: #f6f1e7;
+  --ink-soft: #b7c3bb;
+  --line: #234037;
+  --well: #173028;
+  --card: #1a332b;
+  --danger: #ff6b6b;
+  --accent: #ff8a5b;
+  --accent-ink: #2a120c;
+  --table: #f6f1e7;
+  --cream: #14352b;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-felt: var(--felt);
+  --color-felt-deep: var(--felt-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-well: var(--well);
+  --color-card: var(--card);
+  --color-danger: var(--danger);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-table: var(--table);
+  --color-cream: var(--cream);
+  --color-uno-red: #e23b3b;
+  --color-uno-yellow: #f2c14e;
+  --color-uno-green: #1f9d55;
+  --color-uno-blue: #2f6fe4;
+  --color-uno-wild: #161616;
+  --color-uno-red-ink: #b42323;
+  --color-uno-yellow-ink: #6a4b00;
+  --color-uno-green-ink: #0f7a3d;
+  --color-uno-blue-ink: #1d4fae;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  html,
+  body {
+    min-height: 100%;
+  }
+  body {
+    margin: 0;
+    background: var(--felt);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+  }
+  button {
+    font: inherit;
+    color: inherit;
+    touch-action: manipulation;
+  }
+}
+
+.wild-pie {
+  background: conic-gradient(
+    var(--color-uno-red) 0 90deg,
+    var(--color-uno-yellow) 90deg 180deg,
+    var(--color-uno-green) 180deg 270deg,
+    var(--color-uno-blue) 270deg 360deg
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe {
+    animation: none !important;
+    transition: none !important;
+  }
+}
